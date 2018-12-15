@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <label>{{ title }}</label>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary" name="button">Games</button>
+    <button class="btn btn-primary" name="button">Wishlist</button>
+    <button (click)='getGames()'>test</button>
+  </div>
+  <div class="row">
+    <ul *ngFor='let game of games'>
+      <li>{{game.name}}<br>{{game.email}}</li>
+    </ul>
+    <!-- <p *ngFor='let game of games'>{{game.name}}<br></p> -->
+    <app-games></app-games>
+  </div>
+</div>
