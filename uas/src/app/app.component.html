@@ -1,17 +1,11 @@
-<div class="container">
-  <div class="row">
-    <label>{{ title }}</label>
-  </div>
-  <div class="row">
-    <button class="btn btn-primary" name="button">Games</button>
-    <button class="btn btn-primary" name="button">Wishlist</button>
-    <button (click)='getGames()'>test</button>
-  </div>
-  <div class="row">
-    <ul *ngFor='let game of games'>
-      <li>{{game.name}}<br>{{game.email}}</li>
-    </ul>
-    <!-- <p *ngFor='let game of games'>{{game.name}}<br></p> -->
-    <app-games></app-games>
-  </div>
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" routerLink="/">Games <span class="sr-only">(current)</span></a></li>
+        <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="/wishlist">Wishlist</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+<div class="mt-5 pt-3">
+    <router-outlet></router-outlet>
 </div>

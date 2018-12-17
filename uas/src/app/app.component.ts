@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { GamesService } from './games.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

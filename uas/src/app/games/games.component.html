@@ -1,3 +1,10 @@
-<p>
-  games works!
-</p>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item py-3" *ngFor='let game of games, let i = index'>
+      <h5>{{ game.name }} - <span *ngIf='game.like == 1'>Liked</span><span *ngIf="game.like == 0">Disliked</span> </h5>
+      <a routerLink="/detail/{{ i+1 }}">
+        <button class="btn btn-dark btn-block">More Info</button>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor='let game of games, let i = index'>
+      <b *ngIf='game.done == 0' (click)="done(game.id, game.done)">{{ game.name }} - <span *ngIf='game.like == 1'>Liked</span><span *ngIf="game.like == 0">Disliked</span></b>
+      <b *ngIf='game.done == 1' (click)="done(game.id, game.done)"><s>{{ game.name }} - <span *ngIf='game.like == 1'>Liked</span><span *ngIf="game.like == 0">Disliked</span></s></b>
+    </li>
+  </ul>
+</div>
