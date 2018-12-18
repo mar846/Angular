@@ -8,11 +8,19 @@ import { IGames } from '../games';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit {
-
+  s:string="";
   games:IGames[]=[];
   constructor(private gs:GamesService) { }
   ngOnInit() {
-    this.gs.getGames().subscribe(
+    this.gs.getGames(this.s).subscribe(
+      (data)=>{
+        this.games=data;
+        console.log(data);
+      }
+    );
+  }
+  search(){
+    this.gs.getGames(this.s).subscribe(
       (data)=>{
         this.games=data;
         console.log(data);

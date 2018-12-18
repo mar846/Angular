@@ -1,8 +1,12 @@
 <div class="container">
+  <form class="form-group">
+    <input type="text" class="form-control" (input)="search()" [(ngModel)]="s" name="search" id="search" placeholder="Search game...">
+  </form>
   <ul class="list-group">
     <li class="list-group-item py-3" *ngFor='let game of games, let i = index'>
-      <h5>{{ game.name }} - <span *ngIf='game.like == 1'>Liked</span><span *ngIf="game.like == 0">Disliked</span> </h5>
-      <a routerLink="/detail/{{ i+1 }}">
+      <h5 *ngIf="game.id == 0">No Result</h5>
+      <h5>{{ game.name }}  <span *ngIf='game.like == 1'><i class="fa fa-heart" style="color:red;"></i></span></h5>
+      <a routerLink="/detail/{{ game.id }}" *ngIf='game.id != 0'>
         <button class="btn btn-dark btn-block">More Info</button>
       </a>
     </li>

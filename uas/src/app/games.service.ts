@@ -14,8 +14,10 @@ export class GamesService {
   test():Observable<any>{
     return of("test");
   }
-  getGames():Observable<IGames[]>{
-    return this.http.get<IGames[]>('http://localhost/pmn/uas/getgames.php');
+  getGames(search:string):Observable<IGames[]>{
+    let body = new HttpParams();
+    body = body.set('s',search)
+    return this.http.post<IGames[]>('http://localhost/pmn/uas/getgames.php',body);
   }
   getGamesDetail(id:string):Observable<IGames[]>{
     let body = new HttpParams();

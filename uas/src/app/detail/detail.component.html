@@ -2,22 +2,29 @@
   <div class="row" *ngFor="let game of game">
     <div class="col-md-4">
       <img src="{{ game.picture }}" alt="Avatar" class="w-100">
-      <div>
-        <!-- <iframe width="560" height="315" [src]='game.video' class="e2e-iframe-untrusted-src" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-      </div>
     </div>
     <div class="col-md-8 border">
-      <h2>{{ game.name }}</h2>
+      <h2>{{ game.name }} <span *ngIf='game.like == 1'><i class="fa fa-heart" style="color:red;"></i></span></h2>
       <p>{{ game.description }}</p>
-      <button class="btn btn-primary btn-block" name="button" (click)="wishlist(game.id, game.wishlist)">
-        <span *ngIf="game.wishlist == 0">Add To</span>
-        <span *ngIf="game.wishlist == 1">Remove From</span>
-        Wishlist
-      </button>
-      <button class="btn btn-primary btn-block" name="button" (click)="like(game.id ,game.like )">
-        <span *ngIf="game.like == 0">L</span>
-        <span *ngIf="game.like == 1">Disl</span>ike
-      </button>
+      <div class="col-12 mb-4">
+        <h4>Video Trailer</h4>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="e2e-iframe-untrusted-src embed-responsive-item" [src]="video(game.video)"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-12 pb-5">
+        <button class="btn btn-primary btn-block" name="button" (click)="wishlist(game.id, game.wishlist)">
+          <span *ngIf="game.wishlist == 0">Add To</span>
+          <span *ngIf="game.wishlist == 1">Remove From</span>
+          Wishlist
+        </button>
+        <button class="btn btn-primary btn-block" name="button" (click)="like(game.id ,game.like )">
+          <span *ngIf='game.like == 0'><i class="fa fa-heart" style="color:red;"></i></span>
+          <span *ngIf="game.like == 0"> L</span>
+          <span *ngIf='game.like == 1'><i class="fa fa-heart"></i></span>
+          <span *ngIf="game.like == 1"> Disl</span>ike
+        </button>
+      </div>
     </div>
   </div>
 </div>

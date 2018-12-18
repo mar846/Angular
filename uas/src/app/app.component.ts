@@ -20,7 +20,7 @@ export class AppComponent {
     );
   }
   getGames(){
-    this.gs.getGames().subscribe(
+    this.gs.getGames("").subscribe(
       (data)=>{
         this.games=data;
         console.log(data);
